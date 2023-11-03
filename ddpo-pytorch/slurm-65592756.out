@@ -1,0 +1,14 @@
+current conda env is /global/scratch/users/chenxin0210/conda-env/rl-ddop
+================
+current GPU condition is:
+2.1.0+cu121
+12.1
+CUDA is available!
+Number of GPUs: 3
+Device 0: NVIDIA A40
+Device 1: NVIDIA A40
+Device 2: NVIDIA A40
+available nCPU is:
+10
+================
+start running:

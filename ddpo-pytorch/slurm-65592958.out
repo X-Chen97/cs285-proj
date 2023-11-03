@@ -1,0 +1,4 @@
+current conda env is /global/scratch/users/chenxin0210/conda-env/rl-ddop
+================
+current GPU condition is:
+slurmstepd: error: *** JOB 65592958 ON n0000.es1 CANCELLED AT 2023-10-22T18:11:16 ***

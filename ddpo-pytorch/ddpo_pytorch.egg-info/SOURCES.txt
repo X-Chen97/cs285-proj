@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+ddpo_pytorch/aesthetic_scorer.py
+ddpo_pytorch/prompts.py
+ddpo_pytorch/rewards.py
+ddpo_pytorch/stat_tracking.py
+ddpo_pytorch.egg-info/PKG-INFO
+ddpo_pytorch.egg-info/SOURCES.txt
+ddpo_pytorch.egg-info/dependency_links.txt
+ddpo_pytorch.egg-info/requires.txt
+ddpo_pytorch.egg-info/top_level.txt
