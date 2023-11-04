@@ -5,7 +5,7 @@ import os
 base = imp.load_source("base", os.path.join(os.path.dirname(__file__), "base.py"))
 
 
-def compressibility():
+def gender_equality():
     config = base.get_config()
 
     config.pretrained.model = "CompVis/stable-diffusion-v1-4"
