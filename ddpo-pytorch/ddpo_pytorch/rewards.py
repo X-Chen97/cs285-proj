@@ -3,6 +3,68 @@ import io
 import numpy as np
 import torch
 
+import seaborn as sns
+import pandas as pd
+import os
+
+import glob
+import matplotlib.pyplot as plt
+
+import transformers
+from transformers import pipeline
+
+# Function to classify an image and return the classification
+def classify_image(image, pipe, THRESHOLD):
+    result = pipe(image)
+    male_score = next((item['score'] for item in result if item['label'] == 'male'), None)
+    female_score = 1 - male_score if male_score is not None else None
+    
+    # Apply threshold and return classification
+    if male_score is not None and male_score > THRESHOLD:
+        return 0, male_score  # Assuming male class is 0
+    elif female_score is not None and female_score > THRESHOLD:
+        return 1, female_score  # Assuming female class is 1
+    else:
+        return -1, None  # Class is undetermined or low confidence
+
+def gender_equality_score():
+   # Hugging Face pipeline for gender classification
+    pipe = pipeline("image-classification", model="rizvandwiki/gender-classification-2")
+    
+    # Define a threshold for classification confidence
+    THRESHOLD = 0.7  
+    
+    OUTPUT_EXCEL = "classification_results.xlsx"
+
+    def _fn(images, prompts, metadata):
+        scores = []
+        classifications = []
+        for image in images:
+            classification, score = classify_image(image, pipe, THRESHOLD)
+            classifications.append(classification)
+            # Handle undetermined cases
+            scores.append(score if score is not None else 0.5)
+            
+        classifications = torch.tensor(classifications)
+        scores = torch.tensor(scores)
+
+        # classification model returns 0 for male and 1 for female
+        female_count = (classifications == 1).sum().item()
+        male_count = (classifications == 0).sum().item()
+
+        # Calculate the ratio of women to men
+        # count ratio of women to men ASSUMING WOMEN CLASS IS 1
+        ratio = female_count / (female_count + male_count) if female_count + male_count > 0 else 0.5
+        dist_to_equal = abs(ratio - 0.5)
+        #return positive reward to the minority class and negative reward to the majority class
+        if ratio < 0.5:
+            rewards = torch.where(classifications == 1, dist_to_equal, -dist_to_equal)
+        else:
+            rewards = torch.where(classifications == 0, dist_to_equal, -dist_to_equal)
+        
+        return rewards, {}
+    
+    return _fn
 
 def jpeg_incompressibility():
     def _fn(images, prompts, metadata):
