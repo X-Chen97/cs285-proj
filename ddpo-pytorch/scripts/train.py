@@ -370,7 +370,7 @@ def main(_):
                     },
                     step=global_step,
                 )
-                image_prompt_map[os.path.join(tmpdir, f"{i}.jpg")] = [prompt, reward]
+                image_prompt_map[os.path.join(tmpdir, f"{i}.jpg")] = f"{prompt:.25} | {reward:.2f}"
             
             json_path = os.path.join(tmpdir, "image_prompt.json")
             with open(json_path, "w") as f:
