@@ -1,0 +1,398 @@
+current conda env is /global/scratch/users/chenxin0210/conda-env/rl-ddop
+================
+current GPU condition is:
+2.1.0+cu121
+12.1
+CUDA is available!
+Number of GPUs: 2
+Device 0: NVIDIA A40
+Device 1: NVIDIA A40
+available nCPU is:
+10
+================
+start running:
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `2`
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+wandb: Currently logged in as: cx9. Use `wandb login --relogin` to force relogin
+(…)lassification-2/resolve/main/config.json:   0%|          | 0.00/729 [00:00<?, ?B/s](…)lassification-2/resolve/main/config.json: 100%|██████████| 729/729 [00:00<00:00, 3.30MB/s]
+model.safetensors:   0%|          | 0.00/343M [00:00<?, ?B/s]model.safetensors:   3%|▎         | 10.5M/343M [00:00<00:13, 25.6MB/s]model.safetensors:   6%|▌         | 21.0M/343M [00:00<00:08, 36.2MB/s]model.safetensors:   9%|▉         | 31.5M/343M [00:00<00:06, 47.1MB/s]model.safetensors:  12%|█▏        | 41.9M/343M [00:00<00:05, 59.5MB/s]model.safetensors:  18%|█▊        | 62.9M/343M [00:01<00:03, 79.2MB/s]model.safetensors:  24%|██▍       | 83.9M/343M [00:01<00:02, 92.9MB/s]wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_150330-wla9l7bh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 2023.11.04_15.03.19
+wandb: ⭐️ View project at https://wandb.ai/cx9/ddpo-pytorch
+wandb: 🚀 View run at https://wandb.ai/cx9/ddpo-pytorch/runs/wla9l7bh
+I1104 15:03:41.599375 47044968626368 logging.py:47] 
+allow_tf32: true
+logdir: logs
+mixed_precision: fp16
+num_checkpoint_limit: 100000000
+num_epochs: 1
+per_prompt_stat_tracking:
+  buffer_size: 16
+  min_count: 16
+pretrained:
+  model: CompVis/stable-diffusion-v1-4
+  revision: main
+prompt_fn: engineers
+prompt_fn_kwargs: {}
+resume_from: ''
+reward_fn: gender_equality_score
+run_name: 2023.11.04_15.03.19
+sample:
+  batch_size: 4
+  eta: 1.0
+  guidance_scale: 5.0
+  num_batches_per_epoch: 4
+  num_steps: 50
+save_freq: 1
+seed: 42
+train:
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+  adam_weight_decay: 0.0001
+  adv_clip_max: 5
+  batch_size: 2
+  cfg: true
+  clip_range: 0.0001
+  gradient_accumulation_steps: 2
+  learning_rate: 0.0003
+  max_grad_norm: 1.0
+  num_inner_epochs: 1
+  timestep_fraction: 1.0
+  use_8bit_adam: false
+use_lora: true
+
+model.safetensors:  31%|███       | 105M/343M [00:01<00:02, 101MB/s]  model.safetensors:  37%|███▋      | 126M/343M [00:01<00:02, 104MB/s]model.safetensors:  43%|████▎     | 147M/343M [00:01<00:01, 109MB/s]model.safetensors:  49%|████▉     | 168M/343M [00:01<00:01, 112MB/s]model.safetensors:  55%|█████▍    | 189M/343M [00:02<00:01, 113MB/s]model.safetensors:  61%|██████    | 210M/343M [00:02<00:01, 113MB/s]model.safetensors:  67%|██████▋   | 231M/343M [00:02<00:00, 115MB/s]model.safetensors:  73%|███████▎  | 252M/343M [00:02<00:00, 115MB/s]model.safetensors:  79%|███████▉  | 273M/343M [00:02<00:00, 116MB/s]`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+model.safetensors:  86%|████████▌ | 294M/343M [00:03<00:00, 116MB/s]model.safetensors:  92%|█████████▏| 315M/343M [00:03<00:00, 116MB/s]model.safetensors:  98%|█████████▊| 336M/343M [00:03<00:00, 117MB/s]model.safetensors: 100%|██████████| 343M/343M [00:03<00:00, 99.5MB/s]
+(…)-2/resolve/main/preprocessor_config.json:   0%|          | 0.00/325 [00:00<?, ?B/s](…)-2/resolve/main/preprocessor_config.json: 100%|██████████| 325/325 [00:00<00:00, 1.58MB/s]
+I1104 15:04:29.158944 47044968626368 logging.py:47] ***** Running training *****
+I1104 15:04:29.161266 47044968626368 logging.py:47]   Num Epochs = 1
+I1104 15:04:29.161496 47044968626368 logging.py:47]   Sample batch size per device = 4
+I1104 15:04:29.161678 47044968626368 logging.py:47]   Train batch size per device = 2
+I1104 15:04:29.161847 47044968626368 logging.py:47]   Gradient Accumulation steps = 2
+I1104 15:04:29.162007 47044968626368 logging.py:47] 
+I1104 15:04:29.162178 47044968626368 logging.py:47]   Total number of samples per epoch = 32
+I1104 15:04:29.162356 47044968626368 logging.py:47]   Total train batch size (w. parallel, distributed & accumulation) = 8
+I1104 15:04:29.162521 47044968626368 logging.py:47]   Number of gradient updates per inner epoch = 4
+I1104 15:04:29.162689 47044968626368 logging.py:47]   Number of inner epochs = 1
+Epoch 0: sampling:   0%|          | 0/4 [00:00<?, ?it/s]
+Timestep:   0%|          | 0/50 [00:00<?, ?it/s][A
+Timestep:   2%|▏         | 1/50 [01:09<56:49, 69.58s/it][A
+Timestep:   4%|▍         | 2/50 [01:09<23:02, 28.79s/it][A
+Timestep:   6%|▌         | 3/50 [01:10<12:20, 15.76s/it][A
+Timestep:   8%|▊         | 4/50 [01:10<07:22,  9.63s/it][A
+Timestep:  10%|█         | 5/50 [01:10<04:40,  6.24s/it][A
+Timestep:  12%|█▏        | 6/50 [01:10<03:04,  4.20s/it][A
+Timestep:  14%|█▍        | 7/50 [01:11<02:04,  2.91s/it][A
+Timestep:  16%|█▌        | 8/50 [01:11<01:26,  2.06s/it][A
+Timestep:  18%|█▊        | 9/50 [01:11<01:01,  1.49s/it][A
+Timestep:  20%|██        | 10/50 [01:11<00:44,  1.10s/it][A
+Timestep:  22%|██▏       | 11/50 [01:11<00:32,  1.19it/s][A
+Timestep:  24%|██▍       | 12/50 [01:12<00:24,  1.52it/s][A
+Timestep:  26%|██▌       | 13/50 [01:12<00:19,  1.89it/s][A
+Timestep:  28%|██▊       | 14/50 [01:12<00:15,  2.26it/s][A
+Timestep:  30%|███       | 15/50 [01:12<00:13,  2.56it/s][A
+Timestep:  32%|███▏      | 16/50 [01:13<00:11,  2.90it/s][A
+Timestep:  34%|███▍      | 17/50 [01:13<00:10,  3.20it/s][A
+Timestep:  36%|███▌      | 18/50 [01:13<00:09,  3.44it/s][A
+Timestep:  38%|███▊      | 19/50 [01:13<00:08,  3.63it/s][A
+Timestep:  40%|████      | 20/50 [01:14<00:07,  3.78it/s][A
+Timestep:  42%|████▏     | 21/50 [01:14<00:07,  3.89it/s][A
+Timestep:  44%|████▍     | 22/50 [01:14<00:07,  3.98it/s][A
+Timestep:  46%|████▌     | 23/50 [01:14<00:06,  4.04it/s][A
+Timestep:  48%|████▊     | 24/50 [01:15<00:06,  4.08it/s][A
+Timestep:  50%|█████     | 25/50 [01:15<00:06,  4.11it/s][A
+Timestep:  52%|█████▏    | 26/50 [01:15<00:05,  4.13it/s][A
+Timestep:  54%|█████▍    | 27/50 [01:15<00:05,  4.15it/s][A
+Timestep:  56%|█████▌    | 28/50 [01:16<00:05,  4.16it/s][A
+Timestep:  58%|█████▊    | 29/50 [01:16<00:05,  4.17it/s][A
+Timestep:  60%|██████    | 30/50 [01:16<00:04,  4.17it/s][A
+Timestep:  62%|██████▏   | 31/50 [01:16<00:04,  4.17it/s][A
+Timestep:  64%|██████▍   | 32/50 [01:17<00:04,  4.18it/s][A
+Timestep:  66%|██████▌   | 33/50 [01:17<00:04,  4.18it/s][A
+Timestep:  68%|██████▊   | 34/50 [01:17<00:03,  4.18it/s][A
+Timestep:  70%|███████   | 35/50 [01:17<00:03,  4.18it/s][A
+Timestep:  72%|███████▏  | 36/50 [01:17<00:03,  4.18it/s][A
+Timestep:  74%|███████▍  | 37/50 [01:18<00:03,  4.18it/s][A
+Timestep:  76%|███████▌  | 38/50 [01:18<00:02,  4.18it/s][A
+Timestep:  78%|███████▊  | 39/50 [01:18<00:02,  4.18it/s][A
+Timestep:  80%|████████  | 40/50 [01:18<00:02,  4.19it/s][A
+Timestep:  82%|████████▏ | 41/50 [01:19<00:02,  4.19it/s][A
+Timestep:  84%|████████▍ | 42/50 [01:19<00:01,  4.19it/s][A
+Timestep:  86%|████████▌ | 43/50 [01:19<00:01,  4.18it/s][A
+Timestep:  88%|████████▊ | 44/50 [01:19<00:01,  4.18it/s][A
+Timestep:  90%|█████████ | 45/50 [01:20<00:01,  4.18it/s][A
+Timestep:  92%|█████████▏| 46/50 [01:20<00:00,  4.18it/s][A
+Timestep:  94%|█████████▍| 47/50 [01:20<00:00,  4.18it/s][A
+Timestep:  96%|█████████▌| 48/50 [01:20<00:00,  4.18it/s][A
+Timestep:  98%|█████████▊| 49/50 [01:21<00:00,  4.18it/s][A
+Timestep: 100%|██████████| 50/50 [01:21<00:00,  4.18it/s][A
+                                                         [AEpoch 0: sampling:  25%|██▌       | 1/4 [01:22<04:07, 82.66s/it]
+Timestep:   0%|          | 0/50 [00:00<?, ?it/s][A
+Timestep:   2%|▏         | 1/50 [00:00<00:11,  4.19it/s][A
+Timestep:   4%|▍         | 2/50 [00:00<00:11,  4.18it/s][A
+Timestep:   6%|▌         | 3/50 [00:00<00:11,  4.18it/s][A
+Timestep:   8%|▊         | 4/50 [00:00<00:11,  4.18it/s][A
+Timestep:  10%|█         | 5/50 [00:01<00:10,  4.18it/s][A
+Timestep:  12%|█▏        | 6/50 [00:01<00:10,  4.18it/s][A
+Timestep:  14%|█▍        | 7/50 [00:01<00:10,  4.18it/s][A
+Timestep:  16%|█▌        | 8/50 [00:01<00:10,  4.18it/s][A
+Timestep:  18%|█▊        | 9/50 [00:02<00:09,  4.18it/s][A
+Timestep:  20%|██        | 10/50 [00:02<00:09,  4.18it/s][A
+Timestep:  22%|██▏       | 11/50 [00:02<00:09,  4.18it/s][A
+Timestep:  24%|██▍       | 12/50 [00:02<00:09,  4.17it/s][A
+Timestep:  26%|██▌       | 13/50 [00:03<00:08,  4.17it/s][A
+Timestep:  28%|██▊       | 14/50 [00:03<00:08,  4.17it/s][A
+Timestep:  30%|███       | 15/50 [00:03<00:08,  4.17it/s][A
+Timestep:  32%|███▏      | 16/50 [00:03<00:08,  4.17it/s][A
+Timestep:  34%|███▍      | 17/50 [00:04<00:07,  4.17it/s][A
+Timestep:  36%|███▌      | 18/50 [00:04<00:07,  4.17it/s][A
+Timestep:  38%|███▊      | 19/50 [00:04<00:07,  4.17it/s][A
+Timestep:  40%|████      | 20/50 [00:04<00:07,  4.17it/s][A
+Timestep:  42%|████▏     | 21/50 [00:05<00:06,  4.17it/s][A
+Timestep:  44%|████▍     | 22/50 [00:05<00:06,  4.17it/s][A
+Timestep:  46%|████▌     | 23/50 [00:05<00:06,  4.17it/s][A
+Timestep:  48%|████▊     | 24/50 [00:05<00:06,  4.17it/s][A
+Timestep:  50%|█████     | 25/50 [00:05<00:05,  4.17it/s][A
+Timestep:  52%|█████▏    | 26/50 [00:06<00:05,  4.17it/s][A
+Timestep:  54%|█████▍    | 27/50 [00:06<00:05,  4.17it/s][A
+Timestep:  56%|█████▌    | 28/50 [00:06<00:05,  4.17it/s][A
+Timestep:  58%|█████▊    | 29/50 [00:06<00:05,  4.17it/s][A
+Timestep:  60%|██████    | 30/50 [00:07<00:04,  4.17it/s][A
+Timestep:  62%|██████▏   | 31/50 [00:07<00:04,  4.17it/s][A
+Timestep:  64%|██████▍   | 32/50 [00:07<00:04,  4.17it/s][A
+Timestep:  66%|██████▌   | 33/50 [00:07<00:04,  4.17it/s][A
+Timestep:  68%|██████▊   | 34/50 [00:08<00:03,  4.17it/s][A
+Timestep:  70%|███████   | 35/50 [00:08<00:03,  4.17it/s][A
+Timestep:  72%|███████▏  | 36/50 [00:08<00:03,  4.17it/s][A
+Timestep:  74%|███████▍  | 37/50 [00:08<00:03,  4.17it/s][A
+Timestep:  76%|███████▌  | 38/50 [00:09<00:02,  4.17it/s][A
+Timestep:  78%|███████▊  | 39/50 [00:09<00:02,  4.17it/s][A
+Timestep:  80%|████████  | 40/50 [00:09<00:02,  4.17it/s][A
+Timestep:  82%|████████▏ | 41/50 [00:09<00:02,  4.17it/s][A
+Timestep:  84%|████████▍ | 42/50 [00:10<00:01,  4.17it/s][A
+Timestep:  86%|████████▌ | 43/50 [00:10<00:01,  4.17it/s][A
+Timestep:  88%|████████▊ | 44/50 [00:10<00:01,  4.17it/s][A
+Timestep:  90%|█████████ | 45/50 [00:10<00:01,  4.17it/s][A
+Timestep:  92%|█████████▏| 46/50 [00:11<00:00,  4.17it/s][A
+Timestep:  94%|█████████▍| 47/50 [00:11<00:00,  4.17it/s][A
+Timestep:  96%|█████████▌| 48/50 [00:11<00:00,  4.17it/s][A
+Timestep:  98%|█████████▊| 49/50 [00:11<00:00,  4.16it/s][A
+Timestep: 100%|██████████| 50/50 [00:11<00:00,  4.17it/s][A
+                                                         [AEpoch 0: sampling:  50%|█████     | 2/4 [01:34<01:22, 41.10s/it]
+Timestep:   0%|          | 0/50 [00:00<?, ?it/s][A
+Timestep:   2%|▏         | 1/50 [00:00<00:11,  4.17it/s][A
+Timestep:   4%|▍         | 2/50 [00:00<00:11,  4.17it/s][A
+Timestep:   6%|▌         | 3/50 [00:00<00:11,  4.16it/s][A
+Timestep:   8%|▊         | 4/50 [00:00<00:11,  4.16it/s][A
+Timestep:  10%|█         | 5/50 [00:01<00:10,  4.16it/s][A
+Timestep:  12%|█▏        | 6/50 [00:01<00:10,  4.16it/s][A
+Timestep:  14%|█▍        | 7/50 [00:01<00:10,  4.16it/s][A
+Timestep:  16%|█▌        | 8/50 [00:01<00:10,  4.16it/s][A
+Timestep:  18%|█▊        | 9/50 [00:02<00:09,  4.16it/s][A
+Timestep:  20%|██        | 10/50 [00:02<00:09,  4.16it/s][A
+Timestep:  22%|██▏       | 11/50 [00:02<00:09,  4.17it/s][A
+Timestep:  24%|██▍       | 12/50 [00:02<00:09,  4.16it/s][A
+Timestep:  26%|██▌       | 13/50 [00:03<00:08,  4.16it/s][A
+Timestep:  28%|██▊       | 14/50 [00:03<00:08,  4.17it/s][A
+Timestep:  30%|███       | 15/50 [00:03<00:08,  4.17it/s][A
+Timestep:  32%|███▏      | 16/50 [00:03<00:08,  4.17it/s][A
+Timestep:  34%|███▍      | 17/50 [00:04<00:07,  4.17it/s][A
+Timestep:  36%|███▌      | 18/50 [00:04<00:07,  4.17it/s][A
+Timestep:  38%|███▊      | 19/50 [00:04<00:07,  4.16it/s][A
+Timestep:  40%|████      | 20/50 [00:04<00:07,  4.16it/s][A
+Timestep:  42%|████▏     | 21/50 [00:05<00:06,  4.16it/s][A
+Timestep:  44%|████▍     | 22/50 [00:05<00:06,  4.16it/s][A
+Timestep:  46%|████▌     | 23/50 [00:05<00:06,  4.17it/s][A
+Timestep:  48%|████▊     | 24/50 [00:05<00:06,  4.17it/s][A
+Timestep:  50%|█████     | 25/50 [00:06<00:06,  4.17it/s][A
+Timestep:  52%|█████▏    | 26/50 [00:06<00:05,  4.16it/s][A
+Timestep:  54%|█████▍    | 27/50 [00:06<00:05,  4.16it/s][A
+Timestep:  56%|█████▌    | 28/50 [00:06<00:05,  4.17it/s][A
+Timestep:  58%|█████▊    | 29/50 [00:06<00:05,  4.17it/s][A
+Timestep:  60%|██████    | 30/50 [00:07<00:04,  4.16it/s][A
+Timestep:  62%|██████▏   | 31/50 [00:07<00:04,  4.17it/s][A
+Timestep:  64%|██████▍   | 32/50 [00:07<00:04,  4.17it/s][A
+Timestep:  66%|██████▌   | 33/50 [00:07<00:04,  4.16it/s][A
+Timestep:  68%|██████▊   | 34/50 [00:08<00:03,  4.16it/s][A
+Timestep:  70%|███████   | 35/50 [00:08<00:03,  4.16it/s][A
+Timestep:  72%|███████▏  | 36/50 [00:08<00:03,  4.16it/s][A
+Timestep:  74%|███████▍  | 37/50 [00:08<00:03,  4.16it/s][A
+Timestep:  76%|███████▌  | 38/50 [00:09<00:02,  4.16it/s][A
+Timestep:  78%|███████▊  | 39/50 [00:09<00:02,  4.16it/s][A
+Timestep:  80%|████████  | 40/50 [00:09<00:02,  4.16it/s][A
+Timestep:  82%|████████▏ | 41/50 [00:09<00:02,  4.16it/s][A
+Timestep:  84%|████████▍ | 42/50 [00:10<00:01,  4.16it/s][A
+Timestep:  86%|████████▌ | 43/50 [00:10<00:01,  4.16it/s][A
+Timestep:  88%|████████▊ | 44/50 [00:10<00:01,  4.16it/s][A
+Timestep:  90%|█████████ | 45/50 [00:10<00:01,  4.16it/s][A
+Timestep:  92%|█████████▏| 46/50 [00:11<00:00,  4.16it/s][A
+Timestep:  94%|█████████▍| 47/50 [00:11<00:00,  4.16it/s][A
+Timestep:  96%|█████████▌| 48/50 [00:11<00:00,  4.16it/s][A
+Timestep:  98%|█████████▊| 49/50 [00:11<00:00,  4.16it/s][A
+Timestep: 100%|██████████| 50/50 [00:12<00:00,  4.16it/s][A
+                                                         [AEpoch 0: sampling:  75%|███████▌  | 3/4 [01:46<00:27, 27.95s/it]
+Timestep:   0%|          | 0/50 [00:00<?, ?it/s][A
+Timestep:   2%|▏         | 1/50 [00:00<00:11,  4.17it/s][A
+Timestep:   4%|▍         | 2/50 [00:00<00:11,  4.17it/s][A
+Timestep:   6%|▌         | 3/50 [00:00<00:11,  4.17it/s][A
+Timestep:   8%|▊         | 4/50 [00:00<00:11,  4.16it/s][A
+Timestep:  10%|█         | 5/50 [00:01<00:10,  4.16it/s][A
+Timestep:  12%|█▏        | 6/50 [00:01<00:10,  4.16it/s][A
+Timestep:  14%|█▍        | 7/50 [00:01<00:10,  4.16it/s][A
+Timestep:  16%|█▌        | 8/50 [00:01<00:10,  4.16it/s][A
+Timestep:  18%|█▊        | 9/50 [00:02<00:09,  4.16it/s][A
+Timestep:  20%|██        | 10/50 [00:02<00:09,  4.16it/s][A
+Timestep:  22%|██▏       | 11/50 [00:02<00:09,  4.16it/s][A
+Timestep:  24%|██▍       | 12/50 [00:02<00:09,  4.16it/s][A
+Timestep:  26%|██▌       | 13/50 [00:03<00:08,  4.16it/s][A
+Timestep:  28%|██▊       | 14/50 [00:03<00:08,  4.16it/s][A
+Timestep:  30%|███       | 15/50 [00:03<00:08,  4.16it/s][A
+Timestep:  32%|███▏      | 16/50 [00:03<00:08,  4.16it/s][A
+Timestep:  34%|███▍      | 17/50 [00:04<00:07,  4.16it/s][A
+Timestep:  36%|███▌      | 18/50 [00:04<00:07,  4.16it/s][A
+Timestep:  38%|███▊      | 19/50 [00:04<00:07,  4.16it/s][A
+Timestep:  40%|████      | 20/50 [00:04<00:07,  4.16it/s][A
+Timestep:  42%|████▏     | 21/50 [00:05<00:06,  4.16it/s][A
+Timestep:  44%|████▍     | 22/50 [00:05<00:06,  4.16it/s][A
+Timestep:  46%|████▌     | 23/50 [00:05<00:06,  4.16it/s][A
+Timestep:  48%|████▊     | 24/50 [00:05<00:06,  4.16it/s][A
+Timestep:  50%|█████     | 25/50 [00:06<00:06,  4.16it/s][A
+Timestep:  52%|█████▏    | 26/50 [00:06<00:05,  4.16it/s][A
+Timestep:  54%|█████▍    | 27/50 [00:06<00:05,  4.16it/s][A
+Timestep:  56%|█████▌    | 28/50 [00:06<00:05,  4.15it/s][A
+Timestep:  58%|█████▊    | 29/50 [00:06<00:05,  4.16it/s][A
+Timestep:  60%|██████    | 30/50 [00:07<00:04,  4.16it/s][A
+Timestep:  62%|██████▏   | 31/50 [00:07<00:04,  4.16it/s][A
+Timestep:  64%|██████▍   | 32/50 [00:07<00:04,  4.16it/s][A
+Timestep:  66%|██████▌   | 33/50 [00:07<00:04,  4.16it/s][A
+Timestep:  68%|██████▊   | 34/50 [00:08<00:03,  4.16it/s][A
+Timestep:  70%|███████   | 35/50 [00:08<00:03,  4.16it/s][A
+Timestep:  72%|███████▏  | 36/50 [00:08<00:03,  4.16it/s][A
+Timestep:  74%|███████▍  | 37/50 [00:08<00:03,  4.16it/s][A
+Timestep:  76%|███████▌  | 38/50 [00:09<00:02,  4.16it/s][A
+Timestep:  78%|███████▊  | 39/50 [00:09<00:02,  4.16it/s][A
+Timestep:  80%|████████  | 40/50 [00:09<00:02,  4.16it/s][A
+Timestep:  82%|████████▏ | 41/50 [00:09<00:02,  4.16it/s][A
+Timestep:  84%|████████▍ | 42/50 [00:10<00:01,  4.16it/s][A
+Timestep:  86%|████████▌ | 43/50 [00:10<00:01,  4.16it/s][A
+Timestep:  88%|████████▊ | 44/50 [00:10<00:01,  4.16it/s][A
+Timestep:  90%|█████████ | 45/50 [00:10<00:01,  4.16it/s][A
+Timestep:  92%|█████████▏| 46/50 [00:11<00:00,  4.16it/s][A
+Timestep:  94%|█████████▍| 47/50 [00:11<00:00,  4.16it/s][A
+Timestep:  96%|█████████▌| 48/50 [00:11<00:00,  4.16it/s][A
+Timestep:  98%|█████████▊| 49/50 [00:11<00:00,  4.16it/s][ATraceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 511, in <module>
+    app.run(main)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 340, in main
+    rewards, reward_metadata = sample["rewards"].result()
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/ddpo_pytorch/rewards.py", line 43, in _fn
+    classification, score = classify_image(image, pipe, THRESHOLD)
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/ddpo_pytorch/rewards.py", line 18, in classify_image
+    result = pipe(image)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/image_classification.py", line 100, in __call__
+    return super().__call__(images, **kwargs)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/base.py", line 1120, in __call__
+    return self.run_single(inputs, preprocess_params, forward_params, postprocess_params)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/base.py", line 1126, in run_single
+    model_inputs = self.preprocess(inputs, **preprocess_params)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/image_classification.py", line 103, in preprocess
+    image = load_image(image)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/image_utils.py", line 282, in load_image
+    raise ValueError(
+ValueError: Incorrect format used for image. Should be an url linking to an image, a local path, or a PIL image.
+
+Timestep: 100%|██████████| 50/50 [00:12<00:00,  4.15it/s][A
+                                                         [AEpoch 0: sampling: 100%|██████████| 4/4 [01:59<00:00, 21.78s/it]Epoch 0: sampling: 100%|██████████| 4/4 [01:59<00:00, 29.82s/it]
+Waiting for rewards:   0%|          | 0/4 [00:00<?, ?it/s]Waiting for rewards:   0%|          | 0/4 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 511, in <module>
+    app.run(main)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 340, in main
+    rewards, reward_metadata = sample["rewards"].result()
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/ddpo_pytorch/rewards.py", line 43, in _fn
+    classification, score = classify_image(image, pipe, THRESHOLD)
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/ddpo_pytorch/rewards.py", line 18, in classify_image
+    result = pipe(image)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/image_classification.py", line 100, in __call__
+    return super().__call__(images, **kwargs)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/base.py", line 1120, in __call__
+    return self.run_single(inputs, preprocess_params, forward_params, postprocess_params)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/base.py", line 1126, in run_single
+    model_inputs = self.preprocess(inputs, **preprocess_params)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/image_classification.py", line 103, in preprocess
+    image = load_image(image)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/image_utils.py", line 282, in load_image
+    raise ValueError(
+ValueError: Incorrect format used for image. Should be an url linking to an image, a local path, or a PIL image.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: 🚀 View run 2023.11.04_15.03.19 at: https://wandb.ai/cx9/ddpo-pytorch/runs/wla9l7bh
+wandb: ️⚡ View job at https://wandb.ai/cx9/ddpo-pytorch/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjExMjc0MzE5OQ==/version_details/v0
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231104_150330-wla9l7bh/logs
+[2023-11-04 15:06:39,078] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 51268) of binary: /global/scratch/users/chenxin0210/conda-env/rl-ddop/bin/python
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 45, in main
+    args.func(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/launch.py", line 906, in launch_command
+    multi_gpu_launcher(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/launch.py", line 599, in multi_gpu_launcher
+    distrib_run.run(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2023-11-04_15:06:39
+  host      : n0000.es1
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 51269)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-11-04_15:06:39
+  host      : n0000.es1
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 51268)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

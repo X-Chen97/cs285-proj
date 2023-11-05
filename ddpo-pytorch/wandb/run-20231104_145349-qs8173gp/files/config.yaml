@@ -1,0 +1,110 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.13
+    cli_version: 0.15.12
+    framework: huggingface
+    huggingface_version: 4.30.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1699134829.652919
+    t:
+      1:
+      - 1
+      - 11
+      - 49
+      - 55
+      - 71
+      - 83
+      2:
+      - 1
+      - 11
+      - 49
+      - 55
+      - 71
+      - 83
+      3:
+      - 13
+      - 23
+      4: 3.10.13
+      5: 0.15.12
+      6: 4.30.2
+      8:
+      - 5
+      13: linux-x86_64
+allow_tf32:
+  desc: null
+  value: true
+logdir:
+  desc: null
+  value: logs
+mixed_precision:
+  desc: null
+  value: fp16
+num_checkpoint_limit:
+  desc: null
+  value: 100000000
+num_epochs:
+  desc: null
+  value: 1
+per_prompt_stat_tracking:
+  desc: null
+  value:
+    buffer_size: 16
+    min_count: 16
+pretrained:
+  desc: null
+  value:
+    model: CompVis/stable-diffusion-v1-4
+    revision: main
+prompt_fn:
+  desc: null
+  value: engineers
+prompt_fn_kwargs:
+  desc: null
+  value: {}
+resume_from:
+  desc: null
+  value: ''
+reward_fn:
+  desc: null
+  value: gender_equality_score
+run_name:
+  desc: null
+  value: 2023.11.04_14.53.32
+sample:
+  desc: null
+  value:
+    batch_size: 4
+    eta: 1.0
+    guidance_scale: 5.0
+    num_batches_per_epoch: 4
+    num_steps: 50
+save_freq:
+  desc: null
+  value: 1
+seed:
+  desc: null
+  value: 42
+train:
+  desc: null
+  value:
+    adam_beta1: 0.9
+    adam_beta2: 0.999
+    adam_epsilon: 1.0e-08
+    adam_weight_decay: 0.0001
+    adv_clip_max: 5
+    batch_size: 2
+    cfg: true
+    clip_range: 0.0001
+    gradient_accumulation_steps: 2
+    learning_rate: 0.0003
+    max_grad_norm: 1.0
+    num_inner_epochs: 1
+    timestep_fraction: 1.0
+    use_8bit_adam: false
+use_lora:
+  desc: null
+  value: true

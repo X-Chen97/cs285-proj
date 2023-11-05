@@ -1,0 +1,144 @@
+current conda env is /global/scratch/users/chenxin0210/conda-env/rl-ddop
+================
+current GPU condition is:
+2.1.0+cu121
+12.1
+CUDA is available!
+Number of GPUs: 3
+Device 0: NVIDIA A40
+Device 1: NVIDIA A40
+Device 2: NVIDIA A40
+available nCPU is:
+10
+================
+start running:
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `3`
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+wandb: Currently logged in as: cx9. Use `wandb login --relogin` to force relogin
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+wandb: Tracking run with wandb version 0.15.12
+wandb: Run data is saved locally in /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 2023.11.04_14.53.32
+wandb: ⭐️ View project at https://wandb.ai/cx9/ddpo-pytorch
+wandb: 🚀 View run at https://wandb.ai/cx9/ddpo-pytorch/runs/qs8173gp
+I1104 14:54:02.559519 47465916901568 logging.py:47] 
+allow_tf32: true
+logdir: logs
+mixed_precision: fp16
+num_checkpoint_limit: 100000000
+num_epochs: 1
+per_prompt_stat_tracking:
+  buffer_size: 16
+  min_count: 16
+pretrained:
+  model: CompVis/stable-diffusion-v1-4
+  revision: main
+prompt_fn: engineers
+prompt_fn_kwargs: {}
+resume_from: ''
+reward_fn: gender_equality_score
+run_name: 2023.11.04_14.53.32
+sample:
+  batch_size: 4
+  eta: 1.0
+  guidance_scale: 5.0
+  num_batches_per_epoch: 4
+  num_steps: 50
+save_freq: 1
+seed: 42
+train:
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+  adam_weight_decay: 0.0001
+  adv_clip_max: 5
+  batch_size: 2
+  cfg: true
+  clip_range: 0.0001
+  gradient_accumulation_steps: 2
+  learning_rate: 0.0003
+  max_grad_norm: 1.0
+  num_inner_epochs: 1
+  timestep_fraction: 1.0
+  use_8bit_adam: false
+use_lora: true
+
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 511, in <module>
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 511, in <module>
+    app.run(main)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 308, in run
+    app.run(main)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 254, in _run_main
+    _run_main(main, args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 211, in main
+    sys.exit(main(argv))
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 211, in main
+    reward_fn = getattr(ddpo_pytorch.rewards, config.reward_fn)()
+AttributeError: module 'ddpo_pytorch.rewards' has no attribute 'gender_equality_score'
+    reward_fn = getattr(ddpo_pytorch.rewards, config.reward_fn)()
+AttributeError: module 'ddpo_pytorch.rewards' has no attribute 'gender_equality_score'
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 511, in <module>
+    app.run(main)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 211, in main
+    reward_fn = getattr(ddpo_pytorch.rewards, config.reward_fn)()
+AttributeError: module 'ddpo_pytorch.rewards' has no attribute 'gender_equality_score'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+[2023-11-04 14:54:09,337] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 49187 closing signal SIGTERM
+[2023-11-04 14:54:09,501] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 1 (pid: 49188) of binary: /global/scratch/users/chenxin0210/conda-env/rl-ddop/bin/python
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 45, in main
+    args.func(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/launch.py", line 906, in launch_command
+    multi_gpu_launcher(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/launch.py", line 599, in multi_gpu_launcher
+    distrib_run.run(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2023-11-04_14:54:09
+  host      : n0000.es1
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 49189)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-11-04_14:54:09
+  host      : n0000.es1
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 49188)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

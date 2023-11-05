@@ -1,0 +1,71 @@
+current conda env is /global/scratch/users/chenxin0210/conda-env/rl-ddop
+================
+current GPU condition is:
+2.1.0+cu121
+12.1
+CUDA is available!
+Number of GPUs: 2
+Device 0: NVIDIA A40
+Device 1: NVIDIA A40
+available nCPU is:
+10
+================
+start running:
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `2`
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 17, in <module>
+    import ddpo_pytorch.rewards
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/ddpo_pytorch/rewards.py", line 6, in <module>
+    import seaborn as sns
+ModuleNotFoundError: No module named 'seaborn'
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 17, in <module>
+    import ddpo_pytorch.rewards
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/ddpo_pytorch/rewards.py", line 6, in <module>
+    import seaborn as sns
+ModuleNotFoundError: No module named 'seaborn'
+[2023-11-04 14:58:00,377] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 50259) of binary: /global/scratch/users/chenxin0210/conda-env/rl-ddop/bin/python
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 45, in main
+    args.func(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/launch.py", line 906, in launch_command
+    multi_gpu_launcher(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/accelerate/commands/launch.py", line 599, in multi_gpu_launcher
+    distrib_run.run(args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2023-11-04_14:58:00
+  host      : n0000.es1
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 50260)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-11-04_14:58:00
+  host      : n0000.es1
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 50259)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

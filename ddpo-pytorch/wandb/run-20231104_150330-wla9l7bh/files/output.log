@@ -1,0 +1,109 @@
+I1104 15:03:41.599375 47044968626368 logging.py:47]
+allow_tf32: true
+logdir: logs
+mixed_precision: fp16
+num_checkpoint_limit: 100000000
+num_epochs: 1
+per_prompt_stat_tracking:
+  buffer_size: 16
+  min_count: 16
+pretrained:
+  model: CompVis/stable-diffusion-v1-4
+  revision: main
+prompt_fn: engineers
+prompt_fn_kwargs: {}
+resume_from: ''
+reward_fn: gender_equality_score
+run_name: 2023.11.04_15.03.19
+sample:
+  batch_size: 4
+  eta: 1.0
+  guidance_scale: 5.0
+  num_batches_per_epoch: 4
+  num_steps: 50
+save_freq: 1
+seed: 42
+train:
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+  adam_weight_decay: 0.0001
+  adv_clip_max: 5
+  batch_size: 2
+  cfg: true
+  clip_range: 0.0001
+  gradient_accumulation_steps: 2
+  learning_rate: 0.0003
+  max_grad_norm: 1.0
+  num_inner_epochs: 1
+  timestep_fraction: 1.0
+  use_8bit_adam: false
+use_lora: true
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+I1104 15:04:29.158944 47044968626368 logging.py:47] ***** Running training *****
+I1104 15:04:29.161266 47044968626368 logging.py:47]   Num Epochs = 1
+I1104 15:04:29.161496 47044968626368 logging.py:47]   Sample batch size per device = 4
+I1104 15:04:29.161678 47044968626368 logging.py:47]   Train batch size per device = 2
+I1104 15:04:29.161847 47044968626368 logging.py:47]   Gradient Accumulation steps = 2
+I1104 15:04:29.162007 47044968626368 logging.py:47]
+I1104 15:04:29.162178 47044968626368 logging.py:47]   Total number of samples per epoch = 32
+I1104 15:04:29.162356 47044968626368 logging.py:47]   Total train batch size (w. parallel, distributed & accumulation) = 8
+I1104 15:04:29.162521 47044968626368 logging.py:47]   Number of gradient updates per inner epoch = 4
+I1104 15:04:29.162689 47044968626368 logging.py:47]   Number of inner epochs = 1
+Epoch 0: sampling:   0%|          | 0/4 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+Epoch 0: sampling:  25%|██▌       | 1/4 [01:22<04:07, 82.66s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Waiting for rewards:   0%|          | 0/4 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 511, in <module>
+    app.run(main)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py", line 340, in main
+    rewards, reward_metadata = sample["rewards"].result()
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/ddpo_pytorch/rewards.py", line 43, in _fn
+    classification, score = classify_image(image, pipe, THRESHOLD)
+  File "/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/ddpo_pytorch/rewards.py", line 18, in classify_image
+    result = pipe(image)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/image_classification.py", line 100, in __call__
+    return super().__call__(images, **kwargs)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/base.py", line 1120, in __call__
+    return self.run_single(inputs, preprocess_params, forward_params, postprocess_params)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/base.py", line 1126, in run_single
+    model_inputs = self.preprocess(inputs, **preprocess_params)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/pipelines/image_classification.py", line 103, in preprocess
+    image = load_image(image)
+  File "/global/scratch/users/chenxin0210/conda-env/rl-ddop/lib/python3.10/site-packages/transformers/image_utils.py", line 282, in load_image
+    raise ValueError(
+ValueError: Incorrect format used for image. Should be an url linking to an image, a local path, or a PIL image.

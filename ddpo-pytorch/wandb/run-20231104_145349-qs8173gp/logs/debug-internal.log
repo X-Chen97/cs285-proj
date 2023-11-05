@@ -1,0 +1,127 @@
+2023-11-04 14:53:49,650 INFO    StreamThr :49412 [internal.py:wandb_internal():86] W&B internal server running at pid: 49412, started at: 2023-11-04 14:53:49.649153
+2023-11-04 14:53:49,653 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: status
+2023-11-04 14:53:49,657 INFO    WriterThread:49412 [datastore.py:open_for_write():85] open: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/run-qs8173gp.wandb
+2023-11-04 14:53:49,659 DEBUG   SenderThread:49412 [sender.py:send():380] send: header
+2023-11-04 14:53:49,684 DEBUG   SenderThread:49412 [sender.py:send():380] send: run
+2023-11-04 14:53:49,990 INFO    SenderThread:49412 [dir_watcher.py:__init__():211] watching files in: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files
+2023-11-04 14:53:49,990 INFO    SenderThread:49412 [sender.py:_start_run_threads():1122] run started: qs8173gp with start time 1699134829.652919
+2023-11-04 14:53:49,995 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: check_version
+2023-11-04 14:53:49,996 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: check_version
+2023-11-04 14:53:50,103 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: run_start
+2023-11-04 14:53:58,766 DEBUG   HandlerThread:49412 [system_info.py:__init__():32] System info init
+2023-11-04 14:53:58,767 DEBUG   HandlerThread:49412 [system_info.py:__init__():47] System info init done
+2023-11-04 14:53:58,767 INFO    HandlerThread:49412 [system_monitor.py:start():194] Starting system monitor
+2023-11-04 14:53:58,767 INFO    SystemMonitor:49412 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-11-04 14:53:58,767 INFO    HandlerThread:49412 [system_monitor.py:probe():214] Collecting system info
+2023-11-04 14:53:58,768 INFO    SystemMonitor:49412 [interfaces.py:start():190] Started cpu monitoring
+2023-11-04 14:53:58,769 INFO    SystemMonitor:49412 [interfaces.py:start():190] Started disk monitoring
+2023-11-04 14:53:58,770 INFO    SystemMonitor:49412 [interfaces.py:start():190] Started gpu monitoring
+2023-11-04 14:53:58,771 INFO    SystemMonitor:49412 [interfaces.py:start():190] Started memory monitoring
+2023-11-04 14:53:58,774 INFO    SystemMonitor:49412 [interfaces.py:start():190] Started network monitoring
+2023-11-04 14:53:58,800 DEBUG   HandlerThread:49412 [system_info.py:probe():196] Probing system
+2023-11-04 14:53:58,803 DEBUG   HandlerThread:49412 [system_info.py:_probe_git():181] Probing git
+2023-11-04 14:53:58,821 DEBUG   HandlerThread:49412 [system_info.py:_probe_git():189] Probing git done
+2023-11-04 14:53:58,821 DEBUG   HandlerThread:49412 [system_info.py:probe():244] Probing system done
+2023-11-04 14:53:58,821 DEBUG   HandlerThread:49412 [system_monitor.py:probe():223] {'os': 'Linux-3.10.0-1160.31.1.el7.x86_64-x86_64-with-glibc2.17', 'python': '3.10.13', 'heartbeatAt': '2023-11-04T21:53:58.800161', 'startedAt': '2023-11-04T21:53:49.632183', 'docker': None, 'cuda': None, 'args': ('--config', 'config/dgx.py:gender_equality'), 'state': 'running', 'program': '/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/scripts/train.py', 'codePathLocal': 'scripts/train.py', 'codePath': 'ddpo-pytorch/scripts/train.py', 'git': {'remote': 'https://github.com/X-Chen97/cs285-proj.git', 'commit': 'c8111dbd9f498ab0df107b063df86e56b5133094'}, 'email': None, 'root': '/global/scratch/users/chenxin0210/cs285-proj', 'host': 'n0000.es1', 'username': 'chenxin0210', 'executable': '/global/scratch/users/chenxin0210/conda-env/rl-ddop/bin/python', 'cpu_count': 64, 'cpu_count_logical': 64, 'cpu_freq': {'current': 1535.15625, 'min': 1500.0, 'max': 2250.0}, 'cpu_freq_per_core': [{'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2000.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2000.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 2250.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}, {'current': 1500.0, 'min': 1500.0, 'max': 2250.0}], 'disk': {'/': {'total': 251.88882064819336, 'used': 6.572967529296875}}, 'gpu': 'NVIDIA A40', 'gpu_count': 3, 'gpu_devices': [{'name': 'NVIDIA A40', 'memory_total': 48305799168}, {'name': 'NVIDIA A40', 'memory_total': 48305799168}, {'name': 'NVIDIA A40', 'memory_total': 48305799168}], 'memory': {'total': 503.7776412963867}}
+2023-11-04 14:53:58,821 INFO    HandlerThread:49412 [system_monitor.py:probe():224] Finished collecting system info
+2023-11-04 14:53:58,821 INFO    HandlerThread:49412 [system_monitor.py:probe():227] Publishing system info
+2023-11-04 14:53:58,821 DEBUG   HandlerThread:49412 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-11-04 14:53:58,823 DEBUG   HandlerThread:49412 [system_info.py:_save_pip():68] Saving pip packages done
+2023-11-04 14:53:58,824 DEBUG   HandlerThread:49412 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-11-04 14:53:59,001 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_created():271] file/dir created: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/conda-environment.yaml
+2023-11-04 14:53:59,001 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_created():271] file/dir created: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/requirements.txt
+2023-11-04 14:54:02,531 DEBUG   HandlerThread:49412 [system_info.py:_save_conda():87] Saving conda packages done
+2023-11-04 14:54:02,534 INFO    HandlerThread:49412 [system_monitor.py:probe():229] Finished publishing system info
+2023-11-04 14:54:02,544 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: status_report
+2023-11-04 14:54:02,544 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: keepalive
+2023-11-04 14:54:02,544 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: status_report
+2023-11-04 14:54:02,545 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: keepalive
+2023-11-04 14:54:02,546 DEBUG   SenderThread:49412 [sender.py:send():380] send: files
+2023-11-04 14:54:02,546 INFO    SenderThread:49412 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-11-04 14:54:02,553 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-04 14:54:02,555 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-04 14:54:02,555 DEBUG   SenderThread:49412 [sender.py:send():380] send: telemetry
+2023-11-04 14:54:02,555 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: stop_status
+2023-11-04 14:54:02,732 DEBUG   SenderThread:49412 [sender.py:send():380] send: config
+2023-11-04 14:54:02,966 INFO    wandb-upload_0:49412 [upload_job.py:push():131] Uploaded file /tmp/tmpn0pka519wandb/e05khhim-wandb-metadata.json
+2023-11-04 14:54:03,004 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/conda-environment.yaml
+2023-11-04 14:54:03,004 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_created():271] file/dir created: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/wandb-metadata.json
+2023-11-04 14:54:03,004 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_created():271] file/dir created: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/output.log
+2023-11-04 14:54:05,006 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/output.log
+2023-11-04 14:54:06,019 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: status_report
+2023-11-04 14:54:06,300 DEBUG   SenderThread:49412 [sender.py:send():380] send: exit
+2023-11-04 14:54:06,300 INFO    SenderThread:49412 [sender.py:send_exit():585] handling exit code: 1
+2023-11-04 14:54:06,301 INFO    SenderThread:49412 [sender.py:send_exit():587] handling runtime: 16
+2023-11-04 14:54:06,303 INFO    SenderThread:49412 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-04 14:54:06,303 INFO    SenderThread:49412 [sender.py:send_exit():593] send defer
+2023-11-04 14:54:06,304 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:06,304 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 0
+2023-11-04 14:54:06,304 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:06,304 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-11-04 14:54:06,304 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 1
+2023-11-04 14:54:06,304 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:06,305 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 1
+2023-11-04 14:54:06,305 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:06,305 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-11-04 14:54:06,305 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 2
+2023-11-04 14:54:06,305 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:06,305 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 2
+2023-11-04 14:54:06,305 INFO    HandlerThread:49412 [system_monitor.py:finish():203] Stopping system monitor
+2023-11-04 14:54:06,306 INFO    HandlerThread:49412 [interfaces.py:finish():202] Joined cpu monitor
+2023-11-04 14:54:06,306 INFO    HandlerThread:49412 [interfaces.py:finish():202] Joined disk monitor
+2023-11-04 14:54:06,307 DEBUG   SystemMonitor:49412 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-11-04 14:54:06,307 DEBUG   SystemMonitor:49412 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-11-04 14:54:06,307 DEBUG   SystemMonitor:49412 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-11-04 14:54:06,519 INFO    HandlerThread:49412 [interfaces.py:finish():202] Joined gpu monitor
+2023-11-04 14:54:06,519 INFO    HandlerThread:49412 [interfaces.py:finish():202] Joined memory monitor
+2023-11-04 14:54:06,519 INFO    HandlerThread:49412 [interfaces.py:finish():202] Joined network monitor
+2023-11-04 14:54:06,520 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:06,520 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-11-04 14:54:06,520 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 3
+2023-11-04 14:54:06,520 DEBUG   SenderThread:49412 [sender.py:send():380] send: stats
+2023-11-04 14:54:06,520 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:06,521 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 3
+2023-11-04 14:54:06,521 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:06,522 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-11-04 14:54:06,522 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 4
+2023-11-04 14:54:06,522 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:06,522 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 4
+2023-11-04 14:54:06,522 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:06,522 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-11-04 14:54:06,522 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 5
+2023-11-04 14:54:06,523 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:06,523 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 5
+2023-11-04 14:54:06,523 DEBUG   SenderThread:49412 [sender.py:send():380] send: summary
+2023-11-04 14:54:06,525 INFO    SenderThread:49412 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-04 14:54:06,525 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:06,525 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-11-04 14:54:06,526 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 6
+2023-11-04 14:54:06,526 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:06,526 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 6
+2023-11-04 14:54:06,526 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:06,526 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-11-04 14:54:06,531 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: status_report
+2023-11-04 14:54:06,629 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 7
+2023-11-04 14:54:06,629 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:06,629 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 7
+2023-11-04 14:54:06,630 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:06,630 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-11-04 14:54:07,009 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/config.yaml
+2023-11-04 14:54:07,010 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_created():271] file/dir created: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/wandb-summary.json
+2023-11-04 14:54:07,301 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-04 14:54:08,748 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 8
+2023-11-04 14:54:08,748 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: poll_exit
+2023-11-04 14:54:08,748 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:08,749 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 8
+2023-11-04 14:54:08,749 DEBUG   SenderThread:49412 [sender.py:send_request():407] send_request: defer
+2023-11-04 14:54:08,749 INFO    SenderThread:49412 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-11-04 14:54:08,749 INFO    SenderThread:49412 [job_builder.py:build():281] Attempting to build job artifact
+2023-11-04 14:54:08,751 INFO    SenderThread:49412 [job_builder.py:_get_source_type():393] is repo sourced job
+2023-11-04 14:54:08,755 INFO    SenderThread:49412 [job_builder.py:build():369] adding wandb-job metadata file
+2023-11-04 14:54:08,771 INFO    SenderThread:49412 [sender.py:transition_state():613] send defer: 9
+2023-11-04 14:54:08,771 DEBUG   SenderThread:49412 [sender.py:send():380] send: artifact
+2023-11-04 14:54:08,771 DEBUG   HandlerThread:49412 [handler.py:handle_request():146] handle_request: defer
+2023-11-04 14:54:08,773 INFO    HandlerThread:49412 [handler.py:handle_request_defer():172] handle defer: 9
+2023-11-04 14:54:09,011 INFO    Thread-12 :49412 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb/run-20231104_145349-qs8173gp/files/output.log
+2023-11-04 14:54:09,631 INFO    wandb-upload_1:49412 [upload_job.py:push():89] Uploaded file /global/home/users/chenxin0210/.local/share/wandb/artifacts/staging/tmp9jjr0ghc
+2023-11-04 14:54:09,647 INFO    wandb-upload_0:49412 [upload_job.py:push():89] Uploaded file /global/home/users/chenxin0210/.local/share/wandb/artifacts/staging/tmpj37epc48
