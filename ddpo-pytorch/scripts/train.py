@@ -372,10 +372,12 @@ def main(_):
                 )
                 image_prompt_map[os.path.join(tmpdir, f"{i}.jpg")] = f"{prompt:.25} | {reward:.2f}"
             
-            json_path = os.path.join(tmpdir, "image_prompt.json")
-            with open(json_path, "w") as f:
+            json_path = os.path.join(tmpdir, "image_prompt_map.json")
+            with open(json_path, "wb") as f:
                 json.dump(image_prompt_map, f) 
-            wandb.save(json_path)
+            artifact = wandb.Artifact('image_prompt_map', type='json')
+            artifact.add_file(json_path)
+            wandb.log_artifact(artifact)
 
                 
 
