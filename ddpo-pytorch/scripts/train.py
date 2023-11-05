@@ -24,6 +24,7 @@ from functools import partial
 import tqdm
 import tempfile
 from PIL import Image
+import json
 
 tqdm = partial(tqdm.tqdm, dynamic_ncols=True)
 
@@ -350,15 +351,33 @@ def main(_):
                 pil = Image.fromarray((image.cpu().numpy().transpose(1, 2, 0) * 255).astype(np.uint8))
                 pil = pil.resize((256, 256))
                 pil.save(os.path.join(tmpdir, f"{i}.jpg"))
-            accelerator.log(
-                {
-                    "images": [
-                        wandb.Image(os.path.join(tmpdir, f"{i}.jpg"), caption=f"{prompt:.25} | {reward:.2f}")
-                        for i, (prompt, reward) in enumerate(zip(prompts, rewards))  # only log rewards from process 0
-                    ],
-                },
-                step=global_step,
-            )
+            # accelerator.log(
+            #     {
+            #         "images": [
+            #             wandb.Image(os.path.join(tmpdir, f"{i}.jpg"), caption=f"{prompt:.25} | {reward:.2f}")
+            #             for i, (prompt, reward) in enumerate(zip(prompts, rewards))  # only log rewards from process 0
+            #         ],
+            #     },
+            #     step=global_step,
+            # )
+            image_prompt_map = {}
+            for i, (prompt, reward) in enumerate(zip(prompts, rewards)):
+                accelerator.log(
+                    {
+                        "images": [
+                            wandb.Image(os.path.join(tmpdir, f"{i}.jpg"), caption=f"{prompt:.25} | {reward:.2f}")
+                        ],
+                    },
+                    step=global_step,
+                )
+                image_prompt_map[os.path.join(tmpdir, f"{i}.jpg")] = [prompt, reward]
+            
+            json_path = os.path.join(tmpdir, "image_prompt.json")
+            with open(json_path, "w") as f:
+                json.dump(image_prompt_map, f) 
+            wandb.save(json_path)
+
+                
 
         # gather rewards across processes
         rewards = accelerator.gather(samples["rewards"]).cpu().numpy()
