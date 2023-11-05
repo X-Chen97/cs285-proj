@@ -351,36 +351,25 @@ def main(_):
                 pil = Image.fromarray((image.cpu().numpy().transpose(1, 2, 0) * 255).astype(np.uint8))
                 pil = pil.resize((256, 256))
                 pil.save(os.path.join(tmpdir, f"{i}.jpg"))
-            # accelerator.log(
-            #     {
-            #         "images": [
-            #             wandb.Image(os.path.join(tmpdir, f"{i}.jpg"), caption=f"{prompt:.25} | {reward:.2f}")
-            #             for i, (prompt, reward) in enumerate(zip(prompts, rewards))  # only log rewards from process 0
-            #         ],
-            #     },
-            #     step=global_step,
-            # )
+            
+            accelerator.log(
+                {
+                    "images": [
+                        wandb.Image(os.path.join(tmpdir, f"{i}.jpg"), caption=f"{prompt:.25} | {reward:.2f}")
+                        for i, (prompt, reward) in enumerate(zip(prompts, rewards))  # only log rewards from process 0
+                    ],
+                },
+                step=global_step,
+            )
             image_prompt_map = {}
             for i, (prompt, reward) in enumerate(zip(prompts, rewards)):
-                accelerator.log(
-                    {
-                        "images": [
-                            wandb.Image(os.path.join(tmpdir, f"{i}.jpg"), caption=f"{prompt:.25} | {reward:.2f}")
-                        ],
-                    },
-                    step=global_step,
-                )
+                
                 image_prompt_map[os.path.join(tmpdir, f"{i}.jpg")] = f"{prompt:.25} | {reward:.2f}"
             
             json_path = os.path.join(tmpdir, "image_prompt_map.json")
-            with open(json_path, "w") as f:
-                json.dump(image_prompt_map, f) 
-            # wandb.init()
-            # artifact = wandb.Artifact('image_prompt_map', type='json')
-            # artifact.add_file(json_path)
-            # wandb.log_artifact(artifact)
-            # wandb.finish()
-
+        with open(json_path, "w") as f:
+            json.dump(image_prompt_map, f) 
+        print("image_prompt_map json_path:", json_path)
                 
 
         # gather rewards across processes
