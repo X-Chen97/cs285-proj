@@ -366,7 +366,7 @@ def main(_):
                 
                 image_prompt_map[os.path.join(tmpdir, f"{i}.jpg")] = f"{prompt:.25} | {reward:.2f}"
             
-        json_path = os.path.join(wandb.run.dir, "image_prompt_map.json")
+        json_path = os.path.join(config.logdir, config.run_name, "image_prompt_map.json")
         with open(json_path, "w") as f:
             json.dump(image_prompt_map, f) 
         print("image_prompt_map json_path:", json_path)
