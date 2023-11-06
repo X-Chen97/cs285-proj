@@ -361,15 +361,15 @@ def main(_):
                 },
                 step=global_step,
             )
-            image_prompt_map = {}
-            for i, (prompt, reward) in enumerate(zip(prompts, rewards)):
+            # image_prompt_map = {}
+            # for i, (prompt, reward) in enumerate(zip(prompts, rewards)):
                 
-                image_prompt_map[os.path.join(tmpdir, f"{i}.jpg")] = f"{prompt:.25} | {reward:.2f}"
+            #     image_prompt_map[os.path.join(tmpdir, f"{i}.jpg")] = f"{prompt:.25} | {reward:.2f}"
             
-        json_path = os.path.join("/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb", "image_prompt_map.json")
-        with open(json_path, "w") as f:
-            json.dump(image_prompt_map, f) 
-        print("image_prompt_map json_path:", json_path)
+        # json_path = os.path.join("/global/scratch/users/chenxin0210/cs285-proj/ddpo-pytorch/wandb", "image_prompt_map.json")
+        # with open(json_path, "w") as f:
+        #     json.dump(image_prompt_map, f) 
+        # print("image_prompt_map json_path:", json_path)
                 
 
         # gather rewards across processes
