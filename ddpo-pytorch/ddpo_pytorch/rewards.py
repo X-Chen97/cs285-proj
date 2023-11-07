@@ -70,6 +70,28 @@ def gender_equality_score():
     
     return _fn
 
+def gender_equality_score_const(underrep='female'):
+   # Hugging Face pipeline for gender classification
+    pipe = pipeline("image-classification", model="rizvandwiki/gender-classification-2")
+    
+    def _fn(images, prompts, metadata):
+        scores = []
+        if isinstance(images, torch.Tensor):
+            images = (images * 255).round().clamp(0, 255).to(torch.uint8).cpu().numpy()
+            images = images.transpose(0, 2, 3, 1)  # NCHW -> NHWC
+        images = [Image.fromarray(image) for image in images]
+        for image in images:
+            result = pipe(image)
+            score = next((item['score'] for item in result if item['label'] == underrep), None)
+            scores.append(score)
+            
+        rewards = torch.tensor(scores)
+
+        return rewards, {}
+    
+    return _fn
+
+
 def jpeg_incompressibility():
     def _fn(images, prompts, metadata):
         if isinstance(images, torch.Tensor):
