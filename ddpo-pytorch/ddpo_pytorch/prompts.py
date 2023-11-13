@@ -46,6 +46,9 @@ def simple_animals():
 def engineers():
     return from_file("engineers.txt")
 
+def engineers_one_prompt():
+    return from_file("engineers_one_prompt.txt")
+
 def nouns_activities(nouns_file, activities_file):
     nouns = _load_lines(nouns_file)
     activities = _load_lines(activities_file)
