@@ -24,5 +24,5 @@ echo "================"
 echo start running:
 
 
-accelerate launch scripts/train.py --config config/dgx.py:gender_equality_const
+accelerate launch scripts/train.py --config config/dgx.py:gender_equality
 

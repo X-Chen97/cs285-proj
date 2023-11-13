@@ -10,7 +10,7 @@ def gender_equality():
 
     config.pretrained.model = "CompVis/stable-diffusion-v1-4"
 
-    config.num_epochs = 15 #12#100
+    config.num_epochs = 10 #12#100
     config.use_lora = True
     config.save_freq = 1
     config.num_checkpoint_limit = 100000000
@@ -21,10 +21,10 @@ def gender_equality():
 
     # this corresponds to (8 * 4) / (4 * 2) = 4 gradient updates per epoch.
     config.train.batch_size = 2
-    config.train.gradient_accumulation_steps = 2
+    config.train.gradient_accumulation_steps = 8
 
     # prompting
-    config.prompt_fn = "engineers"#"imagenet_animals"
+    config.prompt_fn = "engineers_one_prompt"#"imagenet_animals"
     config.prompt_fn_kwargs = {}
 
     # rewards
