@@ -89,6 +89,11 @@ def get_config():
     # timesteps for each sample. this will speed up training but reduce the accuracy of policy gradient estimates.
     train.timestep_fraction = 1.0
 
+    # Truly PPO hyperparameters
+    train.policy_kl_range = 1e-8
+    train.policy_params = 15000000
+    train.entropy_coef = 0.0
+
     ###### Prompt Function ######
     # prompt function to use. see `prompts.py` for available prompt functions.
     config.prompt_fn = "imagenet_animals"

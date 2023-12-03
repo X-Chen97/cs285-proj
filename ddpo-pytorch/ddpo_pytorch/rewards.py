@@ -58,7 +58,7 @@ def gender_equality_score():
 
         # Calculate the ratio of women to men
         # count ratio of women to men ASSUMING WOMEN CLASS IS 1
-        ratio = female_count / (female_count + male_count) if female_count + male_count > 0 else 0.5
+        ratio = female_count / (female_count + male_count) if female_count + male_count > 0 else 0.0
         dist_to_equal = abs(ratio - 0.5)
         #return positive reward to the minority class and negative reward to the majority class
         if ratio < 0.5:

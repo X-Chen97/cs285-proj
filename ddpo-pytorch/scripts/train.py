@@ -474,15 +474,24 @@ def main(_):
                             )
 
                         # ppo logic
-                        advantages = torch.clamp(
-                            sample["advantages"], -config.train.adv_clip_max, config.train.adv_clip_max
-                        )
                         ratio = torch.exp(log_prob - sample["log_probs"][:, j])
-                        unclipped_loss = -advantages * ratio
-                        clipped_loss = -advantages * torch.clamp(
-                            ratio, 1.0 - config.train.clip_range, 1.0 + config.train.clip_range
-                        )
-                        loss = torch.mean(torch.maximum(unclipped_loss, clipped_loss))
+                        if config.use_truly_ppo:
+                            Kl = 0.5 * torch.mean((log_prob - sample["log_probs"][:, j]) ** 2)
+                            pg_targets = torch.where((Kl >= config.train.policy_kl_range) & (ratio > 1), ratio*sample["advantages"] - config.train.policy_params * Kl, ratio*sample["advantages"]-config.train.policy_params * config.train.policy_kl_range)
+                            pg_loss = -torch.mean(pg_targets)
+
+                            entropy = -torch.mean(torch.exp(log_prob) * log_prob)
+
+                            loss = pg_loss - config.train.entropy_coef * entropy
+                        else:
+                            advantages = torch.clamp(
+                                sample["advantages"], -config.train.adv_clip_max, config.train.adv_clip_max
+                            )
+                            unclipped_loss = -advantages * ratio
+                            clipped_loss = -advantages * torch.clamp(
+                                ratio, 1.0 - config.train.clip_range, 1.0 + config.train.clip_range
+                            )
+                            loss = torch.mean(torch.maximum(unclipped_loss, clipped_loss))
 
                         # debugging values
                         # John Schulman says that (ratio - 1) - log(ratio) is a better
@@ -491,6 +500,9 @@ def main(_):
                         info["approx_kl"].append(0.5 * torch.mean((log_prob - sample["log_probs"][:, j]) ** 2))
                         info["clipfrac"].append(torch.mean((torch.abs(ratio - 1.0) > config.train.clip_range).float()))
                         info["loss"].append(loss)
+                        if config.use_truly_ppo:
+                            info["ratio*adv"].append(torch.max(ratio*sample["advantages"]))
+                            info["entropy"].append(entropy)
 
                         # backward pass
                         accelerator.backward(loss)
